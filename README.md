@@ -63,6 +63,3 @@
 * Код разбит на модули: `cmd`, `internal/config`, `matcher`, `archiver`, `transport`, `version`.
 * Зависимости управляются через Go modules (см. `go.mod`).
 * Для тестов используйте `go test ./...`.
-
-## Лицензия
-MIT © 2025
