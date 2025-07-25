@@ -15,7 +15,7 @@ import (
 
 var updateCmd = &cobra.Command{
     Use:   "update <packages.json|yaml>",
-    Short: "Download archives via SSH and extract based on packages config (stub)",
+    Short: "Download archives via SSH and extract based on packages config",
     Args:  cobra.ExactArgs(1),
     RunE: func(cmd *cobra.Command, args []string) error {
         cfgPath := args[0]
@@ -72,4 +72,13 @@ var updateCmd = &cobra.Command{
         fmt.Printf("Updated %d/%d packages into %s\n", updated, len(cfg.Packages), localDir)
         return nil
     },
+}
+
+func init() {
+    updateCmd.Flags().String("host", "", "ssh host (host:port)")
+    updateCmd.Flags().String("user", os.Getenv("USER"), "ssh user")
+    updateCmd.Flags().String("key", filepath.Join(os.Getenv("HOME"), ".ssh", "id_rsa"), "path to private key")
+    updateCmd.Flags().String("remote-dir", "/opt/pm_repo", "remote directory with archives")
+    updateCmd.Flags().String("dest", "", "local destination dir (default: dir of config file)")
+    updateCmd.Short = "Download archives via SSH and extract based on packages config (see --help for flags)"
 }

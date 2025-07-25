@@ -1,0 +1,28 @@
+# Go binaries and build artifacts
+/bin/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Archives created by pm
+*.zip
+
+# Vendor directory (if used)
+vendor/
+
+# Coverage files
+coverage.out
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS metadata
+.DS_Store
+Thumbs.db
